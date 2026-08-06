@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Noto_Sans_JP } from "next/font/google";
 import "./globals.css";
+import { SITE } from "@/constants/site";
 
 const notoSansJp = Noto_Sans_JP({
   variable: "--font-noto-sans-jp",
@@ -9,7 +10,7 @@ const notoSansJp = Noto_Sans_JP({
 });
 
 export const metadata: Metadata = {
-  title: "JobTrack",
+  title: SITE.title,
   description:
     "就職・転職活動の応募状況や面接予定を一元管理できる応募管理アプリです。",
   robots: {
