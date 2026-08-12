@@ -1,7 +1,8 @@
 "use server";
 
 import { createClient } from "@/lib/supabase/server";
-import { formState } from "../../../../types/form";
+import { formState } from "../../../types/form";
+import { redirect } from "next/navigation";
 
 export async function signIn(
   _prevState: formState,
@@ -23,9 +24,7 @@ export async function signIn(
       };
     }
 
-    return {
-      error: null,
-    };
+    redirect("/dashboard");
   }
 
   return signInWithEmail();
