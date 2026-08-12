@@ -20,17 +20,22 @@ export function SignInForm() {
       {/* email */}
       <div>
         <InputLabel htmlFor={FORM.email.en} label={FORM.email.ja} />
-        <Input type="email" id={FORM.email.en} />
+        <Input type="email" id={FORM.email.en} name={FORM.email.en} />
       </div>
       {/* password */}
       <div>
         <InputLabel htmlFor={FORM.password.en} label={FORM.password.ja} />
-        <Input type="password" id={FORM.password.en} />
+        <Input
+          type="password"
+          id={FORM.password.en}
+          name={FORM.password.en}
+          minLength={FORM.minLength}
+        />
       </div>
       {/* submit button */}
-      <Button type="submit" label="サインイン" pending={pending} />
+      <Button type="submit" label={FORM.label.signIn} pending={pending} />
       {/* error message */}
-      {state.error && <p>エラー</p>}
+      {state.error && <p>{FORM.error}</p>}
     </form>
   );
 }

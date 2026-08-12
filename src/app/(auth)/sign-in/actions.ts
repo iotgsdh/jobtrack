@@ -3,13 +3,15 @@
 import { createClient } from "@/lib/supabase/server";
 import { formState } from "../../../types/form";
 import { redirect } from "next/navigation";
+import { ROUTE } from "@/constants/route";
+import { FORM } from "@/constants/form";
 
 export async function signIn(
   _prevState: formState,
   formData: FormData,
 ): Promise<formState> {
-  const email = formData.get("email") as string;
-  const password = formData.get("password") as string;
+  const email = formData.get(FORM.email.en) as string;
+  const password = formData.get(FORM.password.en) as string;
   const supabase = await createClient();
 
   async function signInWithEmail() {
@@ -24,7 +26,7 @@ export async function signIn(
       };
     }
 
-    redirect("/dashboard");
+    redirect(`${ROUTE.dashboard}`);
   }
 
   return signInWithEmail();
