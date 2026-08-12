@@ -5,7 +5,7 @@ import { InputLabel } from "./label";
 import { FORM } from "@/constants/form";
 import { Input } from "./input";
 import { Button } from "./button";
-import { formState } from "../../types/form";
+import { formState } from "../types/form";
 import { useActionState } from "react";
 
 const initialState: formState = {
