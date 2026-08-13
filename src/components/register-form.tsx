@@ -3,12 +3,12 @@
 import { InputLabel } from "./label";
 import { Input } from "./input";
 import { Button } from "./button";
-import { formState } from "../types/form";
+import { FormState } from "../types/form";
 import { useActionState } from "react";
 import { register } from "@/app/(main)/register/actions";
 import { COMPANY } from "@/constants/company";
 
-const initialState: formState = {
+const initialState: FormState = {
   error: null,
 };
 

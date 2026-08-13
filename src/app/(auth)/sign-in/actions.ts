@@ -1,15 +1,15 @@
 "use server";
 
 import { createClient } from "@/lib/supabase/server";
-import { formState } from "../../../types/form";
+import { FormState } from "../../../types/form";
 import { redirect } from "next/navigation";
 import { ROUTE } from "@/constants/route";
 import { FORM } from "@/constants/form";
 
 export async function signIn(
-  _prevState: formState,
+  _prevState: FormState,
   formData: FormData,
-): Promise<formState> {
+): Promise<FormState> {
   const email = formData.get(FORM.email.en) as string;
   const password = formData.get(FORM.password.en) as string;
   const supabase = await createClient();

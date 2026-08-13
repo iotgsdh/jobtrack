@@ -4,11 +4,11 @@ import { InputLabel } from "./label";
 import { FORM } from "@/constants/form";
 import { Input } from "./input";
 import { Button } from "./button";
-import { formState } from "../types/form";
+import { FormState } from "../types/form";
 import { useActionState } from "react";
 import { signUp } from "@/app/(auth)/sign-up/actions";
 
-const initialState: formState = {
+const initialState: FormState = {
   error: null,
 };
 

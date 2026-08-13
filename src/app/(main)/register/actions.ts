@@ -1,13 +1,13 @@
 "use server";
 
 import { createClient } from "@/lib/supabase/server";
-import { formState } from "../../../types/form";
+import { FormState } from "../../../types/form";
 import { COMPANY } from "@/constants/company";
 
 export async function register(
-  _prevState: formState,
+  _prevState: FormState,
   formData: FormData,
-): Promise<formState> {
+): Promise<FormState> {
   const companyName = formData.get(COMPANY.name.name) as string;
   const memo = formData.get(COMPANY.memo.en) as string;
   const supabase = await createClient();
