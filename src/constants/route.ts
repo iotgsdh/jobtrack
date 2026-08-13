@@ -4,4 +4,5 @@ export const ROUTE = {
   welcome: "/welcome",
   dashboard: "/dashboard",
   register: "/register",
+  applicationList: "/application-list",
 } as const;
