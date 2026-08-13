@@ -11,6 +11,7 @@ export function Header() {
   return (
     <header>
       <Logo />
+      <Link href={ROUTE.applicationList}>応募一覧</Link>
       {pathname !== ROUTE.register && (
         <Link href={ROUTE.register}>応募登録</Link>
       )}
