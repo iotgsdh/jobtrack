@@ -1,7 +1,9 @@
 "use client";
 
+import { ROUTE } from "@/constants/route";
 import { createClient } from "@/lib/supabase/client";
 import { Application } from "@/types/application";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 function Item({ item }: { item: Application }) {
@@ -25,24 +27,26 @@ function Item({ item }: { item: Application }) {
 
   return (
     <li>
-      <h2>{item.company_name}</h2>
-      <span>{item.status}</span>
-      <div>
-        <span>応募日：</span>
-        <time
-          dateTime={`${applicationDate!.year}-${applicationDate!.month}-${applicationDate!.day}`}
-        >{`${applicationDate!.year}/${applicationDate!.month}/${applicationDate!.day}`}</time>
-      </div>
-      <div>
-        <span>面接日：</span>
-        {interviewDate ? (
+      <Link href={`${ROUTE.applicationList}/${item.id}`}>
+        <h2>{item.company_name}</h2>
+        <span>{item.status}</span>
+        <div>
+          <span>応募日：</span>
           <time
-            dateTime={`${interviewDate.year}-${interviewDate.month}-${interviewDate.day}`}
-          >{`${interviewDate.year}/${interviewDate.month}/${interviewDate.day}`}</time>
-        ) : (
-          <span>未設定</span>
-        )}
-      </div>
+            dateTime={`${applicationDate!.year}-${applicationDate!.month}-${applicationDate!.day}`}
+          >{`${applicationDate!.year}/${applicationDate!.month}/${applicationDate!.day}`}</time>
+        </div>
+        <div>
+          <span>面接日：</span>
+          {interviewDate ? (
+            <time
+              dateTime={`${interviewDate.year}-${interviewDate.month}-${interviewDate.day}`}
+            >{`${interviewDate.year}/${interviewDate.month}/${interviewDate.day}`}</time>
+          ) : (
+            <span>未設定</span>
+          )}
+        </div>
+      </Link>
     </li>
   );
 }
