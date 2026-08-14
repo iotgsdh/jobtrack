@@ -17,7 +17,7 @@ export async function signUp(
 
   if (password !== passwordConfirm) {
     return {
-      error: "エラー",
+      error: "パスワードが一致しません。",
     };
   }
 
