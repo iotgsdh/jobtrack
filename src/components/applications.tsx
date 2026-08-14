@@ -2,6 +2,7 @@
 
 import { ROUTE } from "@/constants/route";
 import { createClient } from "@/lib/supabase/client";
+import { format } from "@/lib/utils/date";
 import { Application } from "@/types/application";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -9,21 +10,6 @@ import { useEffect, useState } from "react";
 function Item({ item }: { item: Application }) {
   const applicationDate = format(item.created_at);
   const interviewDate = format(item.interview_date);
-
-  function format(
-    orig: string | null,
-  ): { year: number; month: string; day: string } | null {
-    if (!orig) {
-      return null;
-    }
-
-    const date = new Date(orig);
-    const year = date.getFullYear();
-    const month = ("0" + (date.getMonth() + 1)).slice(-2);
-    const day = ("0" + date.getDate()).slice(-2);
-
-    return { year, month, day };
-  }
 
   return (
     <li>
