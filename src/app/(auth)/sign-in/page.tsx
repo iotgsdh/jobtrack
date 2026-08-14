@@ -7,8 +7,10 @@ import { ROUTE } from "@/constants/route";
 export default function SignIn() {
   return (
     <div>
+      {/* page title */}
+      <h1 className="hidden">sign in</h1>
       {/* site title */}
-      <h1>{SITE.title}</h1>
+      <span>{SITE.title}</span>
       {/* sign in form */}
       <SignInForm />
       {/* sign up link */}

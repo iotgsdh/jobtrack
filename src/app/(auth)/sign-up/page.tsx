@@ -6,6 +6,8 @@ import Link from "next/link";
 export default function SignUp() {
   return (
     <div>
+      {/* page title */}
+      <h1 className="hidden">sign up</h1>
       {/* sign up form */}
       <SignUpForm />
       {/* sign in link */}

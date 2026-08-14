@@ -1,3 +1,8 @@
 export default function Dashboard() {
-  return <div>dashboard</div>;
+  return (
+    <div>
+      {/* page title */}
+      <h1 className="hidden">dashboard</h1>
+    </div>
+  );
 }
