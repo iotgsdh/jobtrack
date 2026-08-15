@@ -1,3 +1,4 @@
+import { Calendar } from "@/components/calendar";
 import { Statistics } from "@/components/statistics";
 
 export default function Dashboard() {
@@ -7,6 +8,8 @@ export default function Dashboard() {
       <h1 className="hidden">dashboard</h1>
       {/* statistics */}
       <Statistics />
+      {/* calendar */}
+      <Calendar />
     </div>
   );
 }
