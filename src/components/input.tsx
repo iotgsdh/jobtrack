@@ -6,6 +6,7 @@ export function Input({
   name,
   minLength,
   value,
+  placeholder,
   onChange,
 }: {
   type: string;
@@ -13,6 +14,7 @@ export function Input({
   name?: string;
   minLength?: number;
   value?: string;
+  placeholder?: string;
   onChange?: ChangeEventHandler<HTMLInputElement>;
 }) {
   return (
@@ -24,7 +26,9 @@ export function Input({
       required
       minLength={minLength ? minLength : undefined}
       value={value ? value : undefined}
+      placeholder={placeholder ? placeholder : undefined}
       onChange={onChange}
+      className="border-border h-11 w-full rounded-lg border px-4"
     />
   );
 }

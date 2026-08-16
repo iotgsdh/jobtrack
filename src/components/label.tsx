@@ -5,5 +5,9 @@ export function InputLabel({
   htmlFor: string;
   label: string;
 }) {
-  return <label htmlFor={htmlFor}>{label}</label>;
+  return (
+    <label htmlFor={htmlFor} className="block">
+      {label}
+    </label>
+  );
 }

@@ -2,6 +2,7 @@ export const FORM = {
   email: {
     en: "email",
     ja: "メールアドレス",
+    placeholder: "example@gmail.com",
   },
   password: {
     en: "password",
@@ -17,5 +18,5 @@ export const FORM = {
     signUp: "サインアップ",
   },
   minLength: 8,
-  error: "エラー",
+  error: "メールアドレスまたはパスワードが正しくありません。",
 } as const;

@@ -37,3 +37,19 @@ body {
   color: var(--foreground);
   font-family: var(--font-noto-sans-jp), Arial, Helvetica, sans-serif;
 }
+
+.gutter {
+  @apply p-4;
+}
+
+.icon {
+  @apply dark:fill-surface w-6;
+}
+
+.form-inner {
+  @apply flex flex-col gap-y-6;
+}
+
+.form-group {
+  @apply flex flex-col gap-y-2;
+}
