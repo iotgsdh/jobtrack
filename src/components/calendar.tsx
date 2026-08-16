@@ -99,9 +99,7 @@ export function Calendar({
                 type="button"
                 key={day}
                 onClick={() => {
-                  if (item) {
-                    onClick({ interviewDate: dateKey });
-                  }
+                  onClick({ interviewDate: dateKey });
                 }}
               >
                 {day}
