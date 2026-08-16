@@ -10,11 +10,27 @@ export function format(orig: string | null): {
   }
 
   const date = new Date(orig);
-  const year = date.getFullYear().toString();
-  const month = ("0" + (date.getMonth() + 1)).slice(-2);
-  const day = ("0" + date.getDate()).slice(-2);
-  const hour = ("0" + date.getHours()).slice(-2);
-  const minutes = ("0" + date.getMinutes()).slice(-2);
 
-  return { year, month, day, hour, minutes };
+  const formatter = new Intl.DateTimeFormat("ja-JP", {
+    timeZone: "Asia/Tokyo",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+  });
+
+  const parts = formatter.formatToParts(date);
+
+  const get = (type: string) =>
+    parts.find((part) => part.type === type)?.value ?? "";
+
+  return {
+    year: get("year"),
+    month: get("month"),
+    day: get("day"),
+    hour: get("hour"),
+    minutes: get("minute"),
+  };
 }
