@@ -1,9 +1,14 @@
 "use client";
 
 import { createClient } from "@/lib/supabase/client";
+import { format } from "@/lib/utils/date";
 import { useEffect, useState } from "react";
 
-export function Calendar() {
+export function Calendar({
+  onClick,
+}: {
+  onClick: ({ interviewDate }: { interviewDate: string }) => Promise<void>;
+}) {
   const [currentDate, setCurrentDate] = useState(new Date());
   const daysInMonth = new Date(
     currentDate.getFullYear(),
@@ -26,8 +31,8 @@ export function Calendar() {
     );
   };
   const days = Array.from({ length: daysInMonth }, (_, i) => i + 1);
-  const [interviewDate, setInterviewDate] = useState<
-    { interview_date: string }[] | null
+  const [items, setItems] = useState<
+    { id: number; interview_date: string }[] | null
   >([]);
 
   useEffect(() => {
@@ -35,8 +40,8 @@ export function Calendar() {
       const supabase = createClient();
       const { data, error } = await supabase
         .from("applications")
-        .select("interview_date");
-      setInterviewDate(data);
+        .select("id, interview_date");
+      setItems(data);
     }
 
     getItems();
@@ -71,20 +76,36 @@ export function Calendar() {
               <span key={`empty-${i}`} />
             ))}
           {days.map((day) => {
-            const date = new Date(
+            const dateKey = [
               currentDate.getFullYear(),
-              currentDate.getMonth(),
-              day + 1,
-            );
-            const dateKey = date.toISOString().split("T")[0];
-            const interviewDateKey = interviewDate?.map(
-              (date) => date.interview_date.split("T")[0],
-            );
-            const hasInterview = dateKey === interviewDateKey?.toString();
+              String(currentDate.getMonth() + 1).padStart(2, "0"),
+              String(day).padStart(2, "0"),
+            ].join("-");
+
+            const item = items?.find((item) => {
+              const formattedInterviewDate = format(item.interview_date);
+
+              if (!formattedInterviewDate) {
+                return false;
+              }
+
+              const interviewDateKey = `${formattedInterviewDate.year}-${formattedInterviewDate.month}-${formattedInterviewDate.day}`;
+
+              return interviewDateKey === dateKey;
+            });
+
             return (
-              <button type="button" key={day}>
+              <button
+                type="button"
+                key={day}
+                onClick={() => {
+                  if (item) {
+                    onClick({ interviewDate: dateKey });
+                  }
+                }}
+              >
                 {day}
-                {hasInterview && <span>◯</span>}
+                {item && <span>◯</span>}
               </button>
             );
           })}
