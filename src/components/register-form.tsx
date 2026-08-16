@@ -7,6 +7,8 @@ import { FormState } from "../types/form";
 import { useActionState } from "react";
 import { register } from "@/app/(main)/register/actions";
 import { COMPANY } from "@/constants/company";
+import Link from "next/link";
+import { ROUTE } from "@/constants/route";
 
 const initialState: FormState = {
   error: null,
@@ -27,6 +29,8 @@ export function RegisterForm() {
         <InputLabel htmlFor={COMPANY.memo.en} label={COMPANY.memo.ja} />
         <textarea name={COMPANY.memo.en} id={COMPANY.memo.en}></textarea>
       </div>
+      {/* cancel button */}
+      <Link href={ROUTE.dashboard}>キャンセル</Link>
       {/* submit button */}
       <Button type="submit" label="登録" pending={pending} />
       {/* error message */}
