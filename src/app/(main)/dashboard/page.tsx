@@ -32,7 +32,7 @@ export default function Dashboard() {
       {/* calendar */}
       <Calendar onClick={handleClick} />
       {/* schedules */}
-      <Schedules items={items} />
+      {items && <Schedules items={items} />}
     </div>
   );
 }
