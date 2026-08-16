@@ -5,7 +5,7 @@ export function Button({
 }: {
   type: "submit" | "reset" | "button";
   label: string;
-  pending: boolean;
+  pending?: boolean;
 }) {
   return <button type={type}>{pending ? `${label}...` : label}</button>;
 }
