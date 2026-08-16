@@ -33,7 +33,7 @@ export function Statistics() {
     getItems();
   }, []);
 
-  const submitted = status?.filter((value) => value.status === "応募済み");
+  const submitted = status;
   const interview = status?.filter(
     (value) =>
       value.status === "一次面接" ||
