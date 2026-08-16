@@ -9,6 +9,7 @@ import { COMPANY } from "@/constants/company";
 import { edit } from "@/app/(main)/application-list/[id]/actions";
 import { Application } from "@/types/application";
 import { format } from "@/lib/utils/date";
+import Link from "next/link";
 
 const initialState: FormState = {
   error: null,
@@ -90,6 +91,8 @@ export function EditForm({ data }: { data: Application }) {
           onChange={(e) => setMemo(e.target.value)}
         ></textarea>
       </div>
+      {/* delete button */}
+      <Link href="?modal=delete">削除</Link>
       {/* submit button */}
       <Button type="submit" label="保存" pending={pending} />
       {/* error message */}
