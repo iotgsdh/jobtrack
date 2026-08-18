@@ -11,7 +11,7 @@ function Schedule({ item }: { item: Application }) {
     <li>
       <Link
         href={`${ROUTE.applicationList}/${item.id}`}
-        className="block rounded-xl border p-4"
+        className="bg-surface border-border block rounded-xl border p-4"
       >
         <span className="mr-4">{`${hour}：${minutes}`}</span>
         <span>{item.company_name}</span>
