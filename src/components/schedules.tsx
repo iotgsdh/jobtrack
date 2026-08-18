@@ -9,8 +9,11 @@ function Schedule({ item }: { item: Application }) {
 
   return (
     <li>
-      <Link href={`${ROUTE.applicationList}/${item.id}`}>
-        <span>{`${hour}：${minutes}`}</span>
+      <Link
+        href={`${ROUTE.applicationList}/${item.id}`}
+        className="block rounded-xl border p-4"
+      >
+        <span className="mr-4">{`${hour}：${minutes}`}</span>
         <span>{item.company_name}</span>
       </Link>
     </li>
@@ -19,7 +22,7 @@ function Schedule({ item }: { item: Application }) {
 
 export function Schedules({ items }: { items: Application[] | null }) {
   return (
-    <ul>
+    <ul className="mt-4">
       {items?.map((item) => (
         <Schedule key={item.id} item={item} />
       ))}
