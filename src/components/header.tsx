@@ -9,7 +9,7 @@ export function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="border-border bg-surface border-b">
+    <header className="border-border bg-surface border-b dark:bg-transparent">
       <div className="gutter flex justify-between">
         <Logo />
         <div>
