@@ -9,11 +9,14 @@ export function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="border-border border-b">
+    <header className="border-border bg-surface border-b">
       <div className="gutter flex justify-between">
         <Logo />
         <div>
-          <Link href={ROUTE.applicationList} className="mb-4 block text-right">
+          <Link
+            href={ROUTE.applicationList}
+            className="mb-4 block text-right font-bold"
+          >
             応募一覧
           </Link>
           {pathname !== ROUTE.register && (
@@ -24,11 +27,11 @@ export function Header() {
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 -960 960 960"
-                className="icon"
+                className="icon fill-surface"
               >
                 <path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z" />
               </svg>
-              <span>応募登録</span>
+              <span className="text-surface font-bold">応募登録</span>
             </Link>
           )}
         </div>
