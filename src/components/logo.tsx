@@ -11,7 +11,9 @@ export function Logo() {
 
   return (
     <HtmlTag>
-      <Link href={ROUTE.dashboard}>{SITE.title}</Link>
+      <Link href={ROUTE.dashboard} className="text-2xl font-bold">
+        {SITE.title}
+      </Link>
     </HtmlTag>
   );
 }
