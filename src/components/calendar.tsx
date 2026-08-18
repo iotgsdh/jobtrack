@@ -50,7 +50,7 @@ export function Calendar({
   }, []);
 
   return (
-    <div className="border-border bg-surface rounded-xl border">
+    <div className="border-border bg-surface rounded-xl border dark:bg-transparent">
       <div className="border-border flex gap-x-2 border-b py-4">
         <button type="button" onClick={prevMonth}>
           <svg
