@@ -28,7 +28,7 @@ export function Input({
       value={value ? value : undefined}
       placeholder={placeholder ? placeholder : undefined}
       onChange={onChange}
-      className="border-border h-11 w-full rounded-lg border px-4"
+      className="border-border bg-surface h-11 w-full rounded-lg border px-4"
     />
   );
 }
