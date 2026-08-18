@@ -51,7 +51,7 @@ export default function Dashboard() {
   }
 
   return (
-    <div>
+    <div className="gutter">
       {/* message */}
       {showMessage && message === "deleted" && <p>削除しました。</p>}
       {/* page title */}
@@ -61,7 +61,7 @@ export default function Dashboard() {
       {/* calendar */}
       <Calendar onClick={handleClick} />
       {/* schedules */}
-      {items && <Schedules items={items} />}
+      {items?.length !== 0 && <Schedules items={items} />}
     </div>
   );
 }
