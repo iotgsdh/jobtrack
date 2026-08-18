@@ -50,7 +50,7 @@ export function Calendar({
   }, []);
 
   return (
-    <div className="border-border rounded-xl border">
+    <div className="border-border bg-surface rounded-xl border">
       <div className="border-border flex gap-x-2 border-b py-4">
         <button type="button" onClick={prevMonth}>
           <svg
@@ -120,7 +120,7 @@ export function Calendar({
                 className="relative flex justify-center py-4"
               >
                 <span
-                  className={`${dateKey === today && "bg-primary"} grid size-8 place-content-center rounded-full`}
+                  className={`${dateKey === today && "bg-primary text-surface"} grid size-8 place-content-center rounded-full`}
                 >
                   {day}
                 </span>
