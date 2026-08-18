@@ -11,7 +11,7 @@ function StatisticsCard({
   statistics: number | undefined;
 }) {
   return (
-    <div className="border-border bg-surface rounded-xl border py-4">
+    <div className="border-border bg-surface rounded-xl border py-4 dark:bg-transparent">
       <span className="block text-center font-bold">{label}</span>
       <span className="block text-center text-2xl font-bold">
         {statistics ? statistics : 0}
