@@ -11,9 +11,11 @@ function StatisticsCard({
   statistics: number | undefined;
 }) {
   return (
-    <div>
-      <span>{label}</span>
-      <span>{statistics ? statistics : 0}</span>
+    <div className="border-border rounded-xl border py-4">
+      <span className="block text-center font-bold">{label}</span>
+      <span className="block text-center text-2xl font-bold">
+        {statistics ? statistics : 0}
+      </span>
     </div>
   );
 }
@@ -43,7 +45,7 @@ export function Statistics() {
   const jobOffer = status?.filter((value) => value.status === "内定");
 
   return (
-    <div>
+    <div className="mb-4 grid grid-cols-3 gap-x-4">
       <StatisticsCard label="応募数" statistics={submitted?.length} />
       <StatisticsCard label="面接数" statistics={interview?.length} />
       <StatisticsCard label="内定数" statistics={jobOffer?.length} />
