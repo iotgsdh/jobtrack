@@ -23,7 +23,7 @@ export function Modal({ id }: { id: string }) {
   }
 
   return (
-    <div className="gutter bg-modal-bg absolute inset-0 flex items-center">
+    <div className="gutter bg-modal-bg fixed inset-0 flex items-center">
       <div className="bg-background w-full rounded-2xl border p-4">
         <p className="mb-8">
           <span className="block text-center">この応募を削除しますか？</span>
