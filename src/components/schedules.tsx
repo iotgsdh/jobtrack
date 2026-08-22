@@ -4,6 +4,9 @@ import { Application } from "@/types/application";
 import Link from "next/link";
 
 function Schedule({ item }: { item: Application }) {
+  const year = format(item.interview_date)?.year;
+  const month = format(item.interview_date)?.month;
+  const day = format(item.interview_date)?.day;
   const hour = format(item.interview_date)?.hour;
   const minutes = format(item.interview_date)?.minutes;
 
@@ -13,7 +16,10 @@ function Schedule({ item }: { item: Application }) {
         href={`${ROUTE.applicationList}/${item.id}`}
         className="bg-surface border-border block rounded-xl border p-4 dark:bg-transparent"
       >
-        <span className="mr-4">{`${hour}：${minutes}`}</span>
+        <div className="mb-1">
+          <span className="mr-4">{`${year} / ${month} / ${day}`}</span>
+          <span>{`${hour}：${minutes}`}</span>
+        </div>
         <span>{item.company_name}</span>
       </Link>
     </li>
