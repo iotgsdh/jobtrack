@@ -23,16 +23,28 @@ export function Modal({ id }: { id: string }) {
   }
 
   return (
-    <div>
-      <p>
-        <span>この応募を削除しますか？</span>
-        <span>この操作は取り消せません。</span>
-      </p>
+    <div className="gutter bg-modal-bg absolute inset-0 flex items-center">
+      <div className="bg-background w-full rounded-2xl border p-4">
+        <p className="mb-8">
+          <span className="block text-center">この応募を削除しますか？</span>
+          <span className="block text-center">この操作は取り消せません。</span>
+        </p>
 
-      <div>
-        <Link href={`${ROUTE.applicationList}/${id}`}>キャンセル</Link>
-
-        <Button type="button" label="削除" onClick={handleDelete} />
+        <div className="flex flex-col gap-y-4">
+          <Link
+            href={`${ROUTE.applicationList}/${id}`}
+            className="border-primary text-primary flex h-11 w-full items-center justify-center rounded-lg border px-4 font-bold"
+          >
+            キャンセル
+          </Link>
+          <button
+            type="button"
+            onClick={handleDelete}
+            className="border-danger text-danger h-11 w-full rounded-lg border px-4 font-bold"
+          >
+            削除
+          </button>
+        </div>
       </div>
     </div>
   );
