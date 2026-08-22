@@ -22,7 +22,7 @@ function Schedule({ item }: { item: Application }) {
 
 export function Schedules({ items }: { items: Application[] | null }) {
   return (
-    <ul className="mt-4">
+    <ul className="mt-4 flex flex-col gap-y-4 lg:mt-0">
       {items?.map((item) => (
         <Schedule key={item.id} item={item} />
       ))}
