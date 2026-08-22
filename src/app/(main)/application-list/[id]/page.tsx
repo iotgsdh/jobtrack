@@ -19,7 +19,7 @@ export default async function ApplicationDetails({
     .single();
 
   return (
-    <div>
+    <div className="gutter">
       {/* page title */}
       <h1 className="hidden">{data.company_name}</h1>
       {/* edit form */}
