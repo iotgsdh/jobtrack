@@ -12,10 +12,10 @@ export function Header() {
     <header className="border-border bg-surface border-b dark:bg-transparent">
       <div className="gutter flex justify-between">
         <Logo />
-        <div>
+        <div className="lg:flex lg:items-center lg:gap-x-8">
           <Link
             href={ROUTE.applicationList}
-            className="mb-4 block text-right font-bold"
+            className="mb-4 block text-right font-bold lg:mb-0"
           >
             応募一覧
           </Link>
