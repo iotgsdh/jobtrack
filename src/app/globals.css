@@ -10,6 +10,18 @@
   --text-secondary: #6b7280;
   --placeholder: #9ca3af;
   --danger: #ef4444;
+  --badge-bg-gray: #f3f4f6;
+  --badge-bg-blue: #e0f2fe;
+  --badge-bg-purple: #ede9fe;
+  --badge-bg-orange: #fef3c7;
+  --badge-bg-green: #dcfce7;
+  --badge-bg-red: #fee2e2;
+  --badge-text-gray: #374151;
+  --badge-text-blue: #0369a1;
+  --badge-text-purple: #6d28d9;
+  --badge-text-orange: #b45309;
+  --badge-text-green: #15803d;
+  --badge-text-red: #b91c1c;
 }
 
 @theme inline {
@@ -23,6 +35,18 @@
   --color-placeholder: var(--placeholder);
   --color-danger: var(--danger);
   --font-noto-sans-jp: var(--font-noto-sans-jp);
+  --color-badge-bg-gray: var(--badge-bg-gray);
+  --color-badge-bg-blue: var(--badge-bg-blue);
+  --color-badge-bg-purple: var(--badge-bg-purple);
+  --color-badge-bg-orange: var(--badge-bg-orange);
+  --color-badge-bg-green: var(--badge-bg-green);
+  --color-badge-bg-red: var(--badge-bg-red);
+  --color-badge-text-gray: var(--badge-text-gray);
+  --color-badge-text-blue: var(--badge-text-blue);
+  --color-badge-text-purple: var(--badge-text-purple);
+  --color-badge-text-orange: var(--badge-text-orange);
+  --color-badge-text-green: var(--badge-text-green);
+  --color-badge-text-red: var(--badge-text-red);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -52,4 +76,28 @@ body {
 
 .form-group {
   @apply flex flex-col gap-y-2;
+}
+
+.gray {
+  @apply bg-badge-bg-gray text-badge-text-gray;
+}
+
+.blue {
+  @apply bg-badge-bg-blue text-badge-text-blue;
+}
+
+.purple {
+  @apply bg-badge-bg-purple text-badge-text-purple;
+}
+
+.orange {
+  @apply bg-badge-bg-orange text-badge-text-orange;
+}
+
+.green {
+  @apply bg-badge-bg-green text-badge-text-green;
+}
+
+.red {
+  @apply bg-badge-bg-red text-badge-text-red;
 }
