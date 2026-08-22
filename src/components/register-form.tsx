@@ -19,24 +19,37 @@ export function RegisterForm() {
 
   return (
     <form action={action}>
-      {/* company name */}
-      <div>
-        <InputLabel htmlFor={COMPANY.name.en} label={COMPANY.name.ja} />
-        <Input type="text" id={COMPANY.name.en} name={COMPANY.name.name} />
+      <div className="form-inner">
+        {/* company name */}
+        <div className="form-group">
+          <InputLabel htmlFor={COMPANY.name.en} label={COMPANY.name.ja} />
+          <Input type="text" id={COMPANY.name.en} name={COMPANY.name.name} />
+        </div>
+        {/* memo */}
+        <div className="form-group">
+          <InputLabel htmlFor={COMPANY.memo.en} label={COMPANY.memo.ja} />
+          <textarea
+            name={COMPANY.memo.en}
+            id={COMPANY.memo.en}
+            className="border-border bg-surface w-full rounded-lg border dark:bg-transparent"
+          ></textarea>
+        </div>
+        <div className="flex flex-col gap-y-4">
+          {/* cancel button */}
+          <Link
+            href={ROUTE.dashboard}
+            className="border-primary text-primary bg-surface flex h-11 w-full items-center justify-center rounded-lg border px-4 font-bold dark:bg-transparent"
+          >
+            キャンセル
+          </Link>
+          {/* submit button */}
+          <Button type="submit" label="登録" pending={pending} />
+        </div>
+        {/* error message */}
+        {state.error && <p>{state.error}</p>}
+        {/* success message */}
+        {state.success && <p>成功！</p>}
       </div>
-      {/* memo */}
-      <div>
-        <InputLabel htmlFor={COMPANY.memo.en} label={COMPANY.memo.ja} />
-        <textarea name={COMPANY.memo.en} id={COMPANY.memo.en}></textarea>
-      </div>
-      {/* cancel button */}
-      <Link href={ROUTE.dashboard}>キャンセル</Link>
-      {/* submit button */}
-      <Button type="submit" label="登録" pending={pending} />
-      {/* error message */}
-      {state.error && <p>{state.error}</p>}
-      {/* success message */}
-      {state.success && <p>成功！</p>}
     </form>
   );
 }
