@@ -58,10 +58,12 @@ export default function Dashboard() {
       <h1 className="hidden">dashboard</h1>
       {/* statistics */}
       <Statistics />
-      {/* calendar */}
-      <Calendar onClick={handleClick} />
-      {/* schedules */}
-      {items?.length !== 0 && <Schedules items={items} />}
+      <div className="lg:grid lg:grid-cols-2 lg:gap-x-4">
+        {/* calendar */}
+        <Calendar onClick={handleClick} />
+        {/* schedules */}
+        {items?.length !== 0 && <Schedules items={items} />}
+      </div>
     </div>
   );
 }
