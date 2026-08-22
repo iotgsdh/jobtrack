@@ -31,6 +31,7 @@ export function RegisterForm() {
           <textarea
             name={COMPANY.memo.en}
             id={COMPANY.memo.en}
+            rows={8}
             className="border-border bg-surface w-full rounded-lg border dark:bg-transparent"
           ></textarea>
         </div>
