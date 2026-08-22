@@ -36,6 +36,7 @@ export function Calendar({
   >([]);
   const now = format(new Date().toString());
   const today = `${now?.year}-${now?.month}-${now?.day}`;
+  const [selectedDay, setSelectedDay] = useState<string | null>(null);
 
   useEffect(() => {
     async function getItems() {
@@ -116,11 +117,12 @@ export function Calendar({
                 key={day}
                 onClick={() => {
                   onClick({ interviewDate: dateKey });
+                  setSelectedDay(dateKey);
                 }}
                 className="relative flex justify-center py-4"
               >
                 <span
-                  className={`${dateKey === today && "bg-primary text-surface"} grid size-8 place-content-center rounded-full`}
+                  className={`grid size-8 place-content-center rounded-full ${dateKey === today && "bg-primary text-surface"} ${selectedDay === dateKey && "border-primary border"}`}
                 >
                   {day}
                 </span>
