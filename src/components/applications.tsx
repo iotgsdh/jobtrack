@@ -39,7 +39,7 @@ function Item({ item }: { item: Application }) {
     <li>
       <Link
         href={`${ROUTE.applicationList}/${item.id}`}
-        className="border-border block rounded-xl border p-4"
+        className="border-border bg-surface block rounded-xl border p-4 dark:bg-transparent"
       >
         <div className="mb-4 flex items-center justify-between gap-x-4">
           <h2 className="font-bold">{item.company_name}</h2>
