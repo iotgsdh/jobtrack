@@ -49,7 +49,7 @@ export function RegisterForm() {
         {/* error message */}
         {state.error && <p>{state.error}</p>}
         {/* success message */}
-        {state.success && <p>成功！</p>}
+        {state.success && <p>登録しました</p>}
       </div>
     </form>
   );
