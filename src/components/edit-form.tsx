@@ -99,7 +99,7 @@ export function EditForm({ data }: { data: Application }) {
             value={memo}
             rows={8}
             onChange={(e) => setMemo(e.target.value)}
-            className="border-border bg-surface w-full rounded-lg border dark:bg-transparent"
+            className="border-border bg-surface w-full rounded-lg border p-4 dark:bg-transparent"
           ></textarea>
         </div>
         <div className="flex flex-col gap-y-4">
