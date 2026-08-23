@@ -63,7 +63,7 @@ export default function Dashboard() {
       <h1 className="hidden">dashboard</h1>
       {/* statistics */}
       <Statistics />
-      <div className="lg:grid lg:grid-cols-2 lg:gap-x-4">
+      <div className="px-4 pb-4 lg:grid lg:grid-cols-2 lg:gap-x-4">
         {/* calendar */}
         <Calendar onClick={handleClick} />
         {/* schedules */}
