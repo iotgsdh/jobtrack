@@ -3,7 +3,7 @@ import Dashboard from "./dashboard";
 
 export default function DashboardPage() {
   return (
-    <div className="gutter">
+    <div className="gutter inner">
       <Suspense fallback={<p>Loading...</p>}>
         <Dashboard />
       </Suspense>

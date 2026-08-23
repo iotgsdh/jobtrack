@@ -10,7 +10,7 @@ export function Header() {
 
   return (
     <header className="border-border bg-surface border-b dark:bg-transparent">
-      <div className="gutter flex justify-between">
+      <div className="gutter inner flex justify-between">
         <Logo />
         <div className="flex flex-col justify-center gap-y-4 lg:flex-row lg:items-center lg:gap-x-8">
           <Link
