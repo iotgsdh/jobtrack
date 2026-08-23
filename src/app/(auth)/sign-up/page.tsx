@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function SignUp() {
   return (
-    <div className="gutter inner flex h-dvh flex-col justify-center overflow-auto landscape:block">
+    <div className="gutter inner flex h-dvh flex-col justify-center overflow-auto landscape:block lg:landscape:flex">
       {/* page title */}
       <h1 className="hidden">sign up</h1>
       {/* sign up form */}
