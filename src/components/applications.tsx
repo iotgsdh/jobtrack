@@ -83,7 +83,7 @@ export function Applications() {
 
   return (
     <div>
-      <ul className="grid gap-y-4">
+      <ul className="grid gap-y-4 lg:grid-cols-2 lg:gap-x-4">
         {items?.map((item) => (
           <Item key={item.id} item={item} />
         ))}
