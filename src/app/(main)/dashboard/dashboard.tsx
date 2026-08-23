@@ -46,7 +46,8 @@ export default function Dashboard() {
       .from("applications")
       .select()
       .gte("interview_date", start)
-      .lte("interview_date", end);
+      .lte("interview_date", end)
+      .order("interview_date", { ascending: true });
     setItems(data);
   }
 
