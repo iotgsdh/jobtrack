@@ -6,7 +6,7 @@ import { ROUTE } from "@/constants/route";
 
 export default function SignIn() {
   return (
-    <div className="gutter inner flex h-dvh flex-col justify-center overflow-auto landscape:block">
+    <div className="gutter inner flex h-dvh flex-col justify-center overflow-auto landscape:block lg:landscape:flex">
       {/* page title */}
       <h1 className="hidden">sign in</h1>
       {/* site title */}
