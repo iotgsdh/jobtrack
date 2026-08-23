@@ -51,9 +51,13 @@ export default function Dashboard() {
   }
 
   return (
-    <div>
+    <div className="relative">
       {/* message */}
-      {showMessage && message === "deleted" && <p>削除しました。</p>}
+      {showMessage && message === "deleted" && (
+        <p className="bg-danger text-surface absolute top-4 right-4 rounded-lg p-4 font-bold">
+          削除しました
+        </p>
+      )}
       {/* page title */}
       <h1 className="hidden">dashboard</h1>
       {/* statistics */}
