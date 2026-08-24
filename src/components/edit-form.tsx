@@ -106,7 +106,7 @@ export function EditForm({ data }: { data: Application }) {
           {/* delete button */}
           <Link
             href="?modal=delete"
-            className="border-danger text-danger flex h-11 items-center justify-center rounded-lg border"
+            className="border-danger text-danger bg-surface flex h-11 items-center justify-center rounded-lg border dark:bg-transparent"
           >
             削除
           </Link>
