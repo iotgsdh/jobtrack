@@ -14,7 +14,7 @@ function StatisticsCard({
     <div className="border-border bg-surface w-full min-w-20 rounded-xl border py-4 dark:bg-transparent">
       <span className="block text-center font-bold">{label}</span>
       <span className="block text-center text-2xl font-bold">
-        {statistics ? statistics : 0}
+        {statistics ? Math.round(statistics) : 0}
         {label === "面接率" && "%"}
       </span>
     </div>
