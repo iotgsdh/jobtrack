@@ -1,63 +1,129 @@
-# Next.js Framework Starter
+# JobTrack
 
-[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/cloudflare/templates/tree/main/next-starter-template)
+就職・転職活動で応募した企業を登録・管理するためのWebアプリです。
 
-<!-- dash-content-start -->
+## Demo
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app). It's deployed on Cloudflare Workers as a [static website](https://developers.cloudflare.com/workers/static-assets/).
+https://jobtrack.tw08iwckpyvz48pfu0sx-262.workers.dev/sign-in
 
-This template uses [OpenNext](https://opennext.js.org/) via the [OpenNext Cloudflare adapter](https://opennext.js.org/cloudflare), which works by taking the Next.js build output and transforming it, so that it can run in Cloudflare Workers.
+## Screenshots
 
-<!-- dash-content-end -->
+### ダッシュボード
 
-Outside of this repo, you can start a new project with this template using [C3](https://developers.cloudflare.com/pages/get-started/c3/) (the `create-cloudflare` CLI):
+![Dashboard](./src/docs/images/dashboard.png)
 
-```bash
-npm create cloudflare@latest -- --template=cloudflare/templates/next-starter-template
-```
+## Features
 
-A live public deployment of this template is available at [https://next-starter-template.templates.workers.dev](https://next-starter-template.templates.workers.dev)
+- ログイン
+- アカウント作成
+- 応募企業の登録
+- 応募企業の一覧表示
+- 応募企業の詳細表示
+
+## Pages
+
+| Page             | Description                          |
+| ---------------- | ------------------------------------ |
+| ログイン         | メールアドレスとパスワードでログイン |
+| アカウント作成   | 新規アカウントを作成                 |
+| ダッシュボード   | 応募状況の概要を表示                 |
+| 応募企業登録     | 応募した企業の情報を登録             |
+| 応募企業一覧     | 登録した企業を一覧で表示             |
+| 応募企業詳細     | 企業ごとの詳細情報を表示             |
+
+## Key Implementations
+
+### Supabaseによる認証・データ管理
+
+`@supabase/ssr` を利用し、サーバー/クライアントの両方でセッションを扱えるようにしています。認証とデータの保存にはSupabaseを使用しています。
+
+### Cloudflare Workers へのデプロイ
+
+[OpenNext](https://opennext.js.org/cloudflare) のCloudflareアダプターを利用し、Next.jsのビルド成果物をCloudflare Workers上で動作させています。
+
+## Tech Stack
+
+| Category       | Technology                    |
+| -------------- | ----------------------------- |
+| Framework      | Next.js 16 (App Router)       |
+| Language       | TypeScript                    |
+| UI             | React 19                      |
+| Styling        | Tailwind CSS 4                |
+| Backend / Auth | Supabase                      |
+| Hosting        | Cloudflare Workers (OpenNext) |
+| Lint           | ESLint                        |
+| Formatter      | Prettier                      |
 
 ## Getting Started
 
-First, run:
+### Clone the repository
+
+```bash
+git clone https://github.com/iotgsdh/jobtrack.git
+cd jobtrack
+```
+
+### Install dependencies
 
 ```bash
 npm install
-# or
-yarn install
-# or
-pnpm install
-# or
-bun install
 ```
 
-Then run the development server (using the package manager of your choice):
+### Environment variables
+
+プロジェクトルートに `.env.local` を作成し、Supabaseの接続情報を設定します。
+
+```env
+NEXT_PUBLIC_SUPABASE_URL=your-supabase-url
+NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=your-supabase-publishable-key
+```
+
+値はSupabaseダッシュボードの「Project Settings」→「API Keys」から確認できます。
+
+### Run the development server
 
 ```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+[http://localhost:3000](http://localhost:3000) をブラウザで開きます。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+| Command           | Description                                  |
+| ----------------- | -------------------------------------------- |
+| `npm run dev`     | 開発サーバーを起動します                     |
+| `npm run build`   | 本番用にビルドします                         |
+| `npm run check`   | ビルドと型チェックを実行します               |
+| `npm run lint`    | ESLintを実行します                           |
+| `npm run preview` | Cloudflare環境に近い状態でローカル確認します |
+| `npm run deploy`  | Cloudflare Workersへデプロイします           |
 
-## Deploying To Production
+## Deployment
 
-| Command                           | Action                                       |
-| :-------------------------------- | :------------------------------------------- |
-| `npm run build`                   | Build your production site                   |
-| `npm run preview`                 | Preview your build locally, before deploying |
-| `npm run build && npm run deploy` | Deploy your production site to Cloudflare    |
-| `npm wrangler tail`               | View real-time logs for all Workers          |
+Cloudflare Workers にデプロイします。
 
-## Learn More
+```bash
+npm run deploy
+```
 
-To learn more about Next.js, take a look at the following resources:
+本番環境の環境変数(`NEXT_PUBLIC_SUPABASE_URL`、`NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`)は、Cloudflareのダッシュボードまたは `wrangler` で設定してください。
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Directory Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```
+src
+├── app
+├── components
+├── constants
+├── lib
+└── types
+```
+
+| Directory    | Description                                              |
+| ------------ | -------------------------------------------------------- |
+| `app`        | App Routerのページ、レイアウト、ルーティング             |
+| `components` | 再利用可能なUIコンポーネント                             |
+| `constants`  | 共通で使用する定数                                       |
+| `lib`        | Supabaseクライアントの初期化など、共通の処理・ユーティリティ |
+| `types`      | TypeScriptの型定義                                       |
