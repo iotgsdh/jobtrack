@@ -4,7 +4,7 @@
 
 ## Demo
 
-https://jobtrack.tw08iwckpyvz48pfu0sx-262.workers.dev
+https://jobtrack.tw08iwckpyvz48pfu0sx-262.workers.dev/
 
 ## Features
 
