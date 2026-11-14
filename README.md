@@ -6,12 +6,6 @@
 
 https://jobtrack.tw08iwckpyvz48pfu0sx-262.workers.dev/sign-in
 
-## Screenshots
-
-### ダッシュボード
-
-![Dashboard](./src/docs/images/dashboard.png)
-
 ## Features
 
 - ログイン
